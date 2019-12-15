@@ -8,4 +8,15 @@ class Ecommerce extends CI_Controller {
 		$this->load->view('ecommerce/index', $data);
 		$this->load->view('ecommerce/templates/footer');
 	}
+
+
+	
+
+
+
+	
+
+
+	
+
 }
