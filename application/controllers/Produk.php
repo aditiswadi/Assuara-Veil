@@ -9,7 +9,7 @@ class Produk extends CI_Controller {
 		$this->load->view('admin/templates/footer');
 	}
 
-	public function create() {
+	public function tambah() {
 		$nama = $this->input->post('nama');
 		$deskripsi = $this->input->post('deskripsi');
 		$kategori = $this->input->post('kategori');
@@ -42,6 +42,47 @@ class Produk extends CI_Controller {
 		);
 
 		$this->Products_model->tambahProduk($data, 'products');
-		redirect('admin/produk/index');
+		redirect('produk/index');
 	}
+
+	public function edit($id) {
+		$where = array('id' => $id);
+		$data['products'] = $this->Products_model->editProduk($where, 'products')->result();
+		$this->load->view('admin/templates/header');
+		$this->load->view('admin/templates/sidebar');
+		$this->load->view('produk/edit', $data);
+		$this->load->view('admin/templates/footer');
+	}
+
+	public function update() {
+		$id = $this->input->post('id');
+		$nama = $this->input->post('nama');
+		$deskripsi = $this->input->post('deskripsi');
+		$kategori = $this->input->post('kategori');
+		$harga = $this->input->post('harga');
+		$stok = $this->input->post('stok');
+
+		$data = array(
+			'nama' => $nama,
+			'deskripsi' => $deskripsi,
+			'kategori' => $kategori,
+			'harga' => $harga,
+			'stok' => $stok
+		);
+
+		$where = array(
+			'id' => $id
+		);
+
+		$this->Products_model->updateData($where, $data, 'products');
+		redirect('produk/index');
+
+	}
+
+
+	public function hapus($id) {
+        $this->Products_model->hapusDataProduk($id);
+        $this->session->set_flashdata('flash', 'Dihapus');
+        redirect('produk/index');
+    }
 }

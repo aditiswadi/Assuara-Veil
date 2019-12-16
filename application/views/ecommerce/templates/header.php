@@ -58,13 +58,13 @@
             <div class="user-panel">
               <div class="up-item">
                 <i class="flaticon-profile"></i>
-                <a href="<?= site_url('auth/index'); ?>">Sign</a> In or <a href="<?= site_url('auth/registration'); ?>">Create Account</a>
+                <a href="<?= base_url('auth/index'); ?>">Sign</a> In or <a href="<?= base_url('auth/registration'); ?>">Create Account</a>
               </div>
               <div class="up-item">
                 <div class="shopping-card">
-                  <i class="flaticon-bag"></i>
+                  <a href="<?= base_url(); ?>/keranjang/detail"><i class="flaticon-bag"></i></a>
                 </div>
-                <a href="#">Shopping Cart</a>
+                <?php $keranjang = $this->cart->total_items(); ?><?= $keranjang; ?>
               </div>
             </div>
           </div>

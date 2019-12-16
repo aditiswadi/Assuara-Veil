@@ -44,7 +44,7 @@ public function __construct(){
 						if($user['role_id'] == 1){
 							redirect('admin');
 						}
-						redirect('user');
+						redirect('ecommerce');
 
 
 

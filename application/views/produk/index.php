@@ -22,9 +22,9 @@
 	  	  <td><?= $product['harga'] ?></td>
 	  	  <td><?= $product['stok'] ?></td>
 	      <td>
-	      	<a href="" class="btn badge-success btn-sm"><i class="fas fa-search-plus"></i></a>
-            <a href="" class="btn badge-primary btn-sm"><i class="fas fa-edit"></i></a>
-            <a href="" class="btn badge-danger btn-sm"><i class="fas fa-trash"></i></a>
+	      	<a href="<?= base_url(); ?>produk/detail/<?= $product['id']; ?>" class="btn badge-success btn-sm"><i class="fas fa-search-plus"></i></a>
+            <a href="<?= base_url(); ?>produk/edit/<?= $product['id']; ?>" class="btn badge-primary btn-sm"><i class="fas fa-edit"></i></a>
+            <a href="<?= base_url(); ?>produk/hapus/<?= $product['id']; ?>" class="btn badge-danger btn-sm"><i class="fas fa-trash"></i></a>
 	      </td>
 	      <!-- <td><?= $product['gambar'] ?></td> -->
 	    </tr>
@@ -44,7 +44,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="<?= base_url() ?>/admin/produk/create" method="post" enctype="multipart/form-data">
+        <form action="<?= base_url() ?>produk/tambah" method="post" enctype="multipart/form-data">
         	<div class="form-group">
         		<label>Nama</label>
         		<input type="text" name="nama" class="form-control">
@@ -59,6 +59,7 @@
         	</div>
         	<div class="form-group">
         		<label>Harga</label>
+                
         		<input type="text" name="harga" class="form-control">
         	</div>
         	<div class="form-group">
