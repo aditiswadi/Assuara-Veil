@@ -34,9 +34,17 @@ class Keranjang extends CI_Controller {
 	}
 
 	public function prosesPesanan() {
-		$this->cart->destroy();
+		$is_processed = $this->model_invoice->index();
+		if ($is_processed) 
+		{
+			$this->cart->destroy();
 		$this->load->view('ecommerce/templates/header');
 		$this->load->view('ecommerce/prosesPesanan');
 		$this->load->view('ecommerce/templates/footer');
+		} else 
+		{
+			echo "Maaf, Pesanan Anda gagal diproses!"
+		}
+		
 	}
 }
