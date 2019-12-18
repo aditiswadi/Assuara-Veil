@@ -46,7 +46,7 @@ class Produk extends CI_Controller {
 	}
 
 	public function edit($id) {
-		$where = array('id' => $id);
+		$where = array('id_produk' => $id);
 		$data['products'] = $this->Products_model->editProduk($where, 'products')->result();
 		$this->load->view('admin/templates/header');
 		$this->load->view('admin/templates/sidebar');
@@ -55,7 +55,7 @@ class Produk extends CI_Controller {
 	}
 
 	public function update() {
-		$id = $this->input->post('id');
+		$id = $this->input->post('id_produk');
 		$nama = $this->input->post('nama');
 		$deskripsi = $this->input->post('deskripsi');
 		$kategori = $this->input->post('kategori');
@@ -71,7 +71,7 @@ class Produk extends CI_Controller {
 		);
 
 		$where = array(
-			'id' => $id
+			'id_produk' => $id
 		);
 
 		$this->Products_model->updateData($where, $data, 'products');

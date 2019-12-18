@@ -22,9 +22,9 @@
 	  	  <td><?= $product['harga'] ?></td>
 	  	  <td><?= $product['stok'] ?></td>
 	      <td>
-	      	<a href="<?= base_url(); ?>produk/detail/<?= $product['id']; ?>" class="btn badge-success btn-sm"><i class="fas fa-search-plus"></i></a>
-            <a href="<?= base_url(); ?>produk/edit/<?= $product['id']; ?>" class="btn badge-primary btn-sm"><i class="fas fa-edit"></i></a>
-            <a href="<?= base_url(); ?>produk/hapus/<?= $product['id']; ?>" class="btn badge-danger btn-sm"><i class="fas fa-trash"></i></a>
+	      	<a href="<?= base_url(); ?>produk/detail/<?= $product['id_produk']; ?>" class="btn badge-success btn-sm"><i class="fas fa-search-plus"></i></a>
+            <a href="<?= base_url(); ?>produk/edit/<?= $product['id_produk']; ?>" class="btn badge-primary btn-sm"><i class="fas fa-edit"></i></a>
+            <a href="<?= base_url(); ?>produk/hapus/<?= $product['id_produk']; ?>" class="btn badge-danger btn-sm"><i class="fas fa-trash"></i></a>
 	      </td>
 	      <!-- <td><?= $product['gambar'] ?></td> -->
 	    </tr>

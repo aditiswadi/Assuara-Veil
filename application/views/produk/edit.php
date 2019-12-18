@@ -6,7 +6,7 @@
 				<label>Nama</label>
 				<input type="text" name="nama" class="form-contrl" value="<?= $product->nama ?>">
 
-				<input type="hidden" name="id" class="form-contrl" value="<?= $product->id ?>">
+				<input type="hidden" name="id" class="form-contrl" value="<?= $product->id_produk ?>">
 			</div>
 
 			<div class="for-group">
