@@ -32,6 +32,8 @@
 </head>
 
 <body>
+ 
+
   <!-- Page Preloder -->
   <div id="preloder">
     <div class="loader"></div>
@@ -58,13 +60,16 @@
             <div class="user-panel">
               <div class="up-item">
                 <i class="flaticon-profile"></i>
-                <a href="<?= base_url('auth/index'); ?>">Sign In </a> or <i class="fas fa-user-plus"></i> <a href="<?= base_url('auth/registration'); ?>">Create Account</a>
+                <a href="<?= base_url('auth/logout'); ?>">Logout</a>
               </div>
               <div class="up-item">
                 <div class="shopping-card">
                   <a href="<?= base_url(); ?>/keranjang/detail"><i class="flaticon-bag"></i></a>
                 </div>
-                <?php $keranjang = $this->cart->total_items(); ?><?= $keranjang; ?>
+                <!-- coba -->
+
+                <!-- akhir coba -->
+             <?php $keranjang = $this->cart->total_items(); ?><?= $keranjang; ?>
               </div>
             </div>
           </div>

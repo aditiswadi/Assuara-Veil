@@ -44,7 +44,7 @@ public function __construct(){
 						if($user['role_id'] == 1){
 							redirect('admin');
 						}
-						redirect('ecommerce');
+						redirect('user');
 
 
 
@@ -104,14 +104,14 @@ public function __construct(){
 	}
 
 
-// public function logout(){
-// 	$this->session->unset_userdata('email');
-// 	$this->session->unset_userdata('role_id');
+public function logout(){
+	$this->session->unset_userdata('email');
+	$this->session->unset_userdata('role_id');
 
-// 	$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-// You have been logged out! </div>');
-// 			redirect('auth');
-// }
+	$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+You have been logged out! </div>');
+			redirect('auth');
+}
 
 
 }

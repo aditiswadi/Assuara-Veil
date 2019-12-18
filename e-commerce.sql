@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Des 2019 pada 06.41
--- Versi server: 10.4.6-MariaDB
--- Versi PHP: 7.1.32
+-- Generation Time: Dec 18, 2019 at 03:36 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
@@ -34,7 +34,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`id_kategori`, `name_kategori`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `category` (`id_kategori`, `name_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
@@ -59,7 +59,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id_produk`, `nama`, `deskripsi`, `kategori`, `harga`, `stok`, `gambar`, `id_kategori`) VALUES
@@ -70,7 +70,7 @@ INSERT INTO `products` (`id_produk`, `nama`, `deskripsi`, `kategori`, `harga`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_invoice`
+-- Table structure for table `tb_invoice`
 --
 
 CREATE TABLE `tb_invoice` (
@@ -82,7 +82,7 @@ CREATE TABLE `tb_invoice` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_invoice`
+-- Dumping data for table `tb_invoice`
 --
 
 INSERT INTO `tb_invoice` (`id`, `nama`, `alamat`, `tgl_pesan`, `batas_bayar`) VALUES
@@ -92,7 +92,7 @@ INSERT INTO `tb_invoice` (`id`, `nama`, `alamat`, `tgl_pesan`, `batas_bayar`) VA
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pesanan`
+-- Table structure for table `tb_pesanan`
 --
 
 CREATE TABLE `tb_pesanan` (
@@ -106,7 +106,7 @@ CREATE TABLE `tb_pesanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_pesanan`
+-- Dumping data for table `tb_pesanan`
 --
 
 INSERT INTO `tb_pesanan` (`id`, `id_invoice`, `id_produk`, `nama`, `jumlah`, `harga`, `pilihan`) VALUES
@@ -116,7 +116,7 @@ INSERT INTO `tb_pesanan` (`id`, `id_invoice`, `id_produk`, `nama`, `jumlah`, `ha
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -131,18 +131,20 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `datte_created`) VALUES
 (1, 'adit', 'aditiswadi2@gmail.com', 'default.jpg', '$2y$10$fSMPe1czKKTfM.Dw0umqLuCy9OqV1.npUsBY1ZvIgx44yapLamQ8K', 2, 1, 1576425227),
 (2, 'admin', 'admin@mail.com', '', 'admin', 1, 1, 0),
-(3, 'reza', 'reza@mail.com', 'default.jpg', '$2y$10$ZXjAQbiDaKvV3FseB9kureiBPMsrks5iNQIDnmMfD4Woi6oNdGlZy', 2, 1, 1576486522);
+(3, 'reza', 'reza@mail.com', 'default.jpg', '$2y$10$ZXjAQbiDaKvV3FseB9kureiBPMsrks5iNQIDnmMfD4Woi6oNdGlZy', 2, 1, 1576486522),
+(4, 'admin2', 'admin2@mail.com', 'default.jpg', '$2y$10$xUnHy53qp.6qG94LGhZcDuWgvUXSzhKksG7UFKFaWSr2kXbcpRKQy', 1, 1, 1576649565),
+(5, 'evi', 'evi@mail.com', 'default.jpg', '$2y$10$CmyOZZE7jzi/fwesLGmp6.TZpJoya4fVMqH3V4sS33kgVg.nBe2pq', 2, 1, 1576675277);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_role`
+-- Table structure for table `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -151,7 +153,7 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user_role`
+-- Dumping data for table `user_role`
 --
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
@@ -163,77 +165,77 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 --
 
 --
--- Indeks untuk tabel `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indeks untuk tabel `products`
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indeks untuk tabel `tb_invoice`
+-- Indexes for table `tb_invoice`
 --
 ALTER TABLE `tb_invoice`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_pesanan`
+-- Indexes for table `tb_pesanan`
 --
 ALTER TABLE `tb_pesanan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_role`
+-- Indexes for table `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `category`
+-- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `id_kategori` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `products`
+-- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_invoice`
+-- AUTO_INCREMENT for table `tb_invoice`
 --
 ALTER TABLE `tb_invoice`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pesanan`
+-- AUTO_INCREMENT for table `tb_pesanan`
 --
 ALTER TABLE `tb_pesanan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `user_role`
+-- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
