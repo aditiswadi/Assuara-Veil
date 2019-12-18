@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2019 at 02:48 PM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Waktu pembuatan: 18 Des 2019 pada 06.41
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Struktur dari tabel `category`
 --
 
 CREATE TABLE `category` (
@@ -34,7 +34,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `category`
+-- Dumping data untuk tabel `category`
 --
 
 INSERT INTO `category` (`id_kategori`, `name_kategori`) VALUES
@@ -44,11 +44,11 @@ INSERT INTO `category` (`id_kategori`, `name_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Struktur dari tabel `products`
 --
 
 CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `deskripsi` varchar(255) NOT NULL,
   `kategori` varchar(50) NOT NULL,
@@ -59,10 +59,10 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `products`
+-- Dumping data untuk tabel `products`
 --
 
-INSERT INTO `products` (`id`, `nama`, `deskripsi`, `kategori`, `harga`, `stok`, `gambar`, `id_kategori`) VALUES
+INSERT INTO `products` (`id_produk`, `nama`, `deskripsi`, `kategori`, `harga`, `stok`, `gambar`, `id_kategori`) VALUES
 (4, 'Lenovo', 'lorem ipsum', 'laptop', 2000000, 3, 'asus2.jpg', 0),
 (6, 'Oppo', 'lorem ipsum', 'Sepatu', 30000000, 3, 'asus3.jpg', 0),
 (8, 'ASUS ROG', 'lorem ipsum', 'laptop', 5000000, 3, 'asg1.jpg', 0);
@@ -70,7 +70,53 @@ INSERT INTO `products` (`id`, `nama`, `deskripsi`, `kategori`, `harga`, `stok`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `tb_invoice`
+--
+
+CREATE TABLE `tb_invoice` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(56) NOT NULL,
+  `alamat` varchar(225) NOT NULL,
+  `tgl_pesan` datetime NOT NULL,
+  `batas_bayar` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_invoice`
+--
+
+INSERT INTO `tb_invoice` (`id`, `nama`, `alamat`, `tgl_pesan`, `batas_bayar`) VALUES
+(1, 'asaasa', 'asa', '2019-12-18 06:29:02', '2019-12-19 06:29:02'),
+(2, 'asaasa', 'asa', '2019-12-18 06:31:24', '2019-12-19 06:31:24');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_pesanan`
+--
+
+CREATE TABLE `tb_pesanan` (
+  `id` int(11) NOT NULL,
+  `id_invoice` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `jumlah` int(3) NOT NULL,
+  `harga` int(10) NOT NULL,
+  `pilihan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_pesanan`
+--
+
+INSERT INTO `tb_pesanan` (`id`, `id_invoice`, `id_produk`, `nama`, `jumlah`, `harga`, `pilihan`) VALUES
+(1, 2, 8, 'ASUS ROG', 1, 5000000, ''),
+(2, 2, 6, 'Oppo', 1, 30000000, '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -85,7 +131,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `datte_created`) VALUES
@@ -96,7 +142,7 @@ INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_a
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_role`
+-- Struktur dari tabel `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -105,7 +151,7 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_role`
+-- Dumping data untuk tabel `user_role`
 --
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
@@ -117,53 +163,77 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 --
 
 --
--- Indexes for table `category`
+-- Indeks untuk tabel `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `products`
+-- Indeks untuk tabel `products`
 --
 ALTER TABLE `products`
+  ADD PRIMARY KEY (`id_produk`);
+
+--
+-- Indeks untuk tabel `tb_invoice`
+--
+ALTER TABLE `tb_invoice`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `tb_pesanan`
+--
+ALTER TABLE `tb_pesanan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_role`
+-- Indeks untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT untuk tabel `category`
 --
 ALTER TABLE `category`
   MODIFY `id_kategori` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT untuk tabel `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `tb_invoice`
+--
+ALTER TABLE `tb_invoice`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_pesanan`
+--
+ALTER TABLE `tb_pesanan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `user_role`
+-- AUTO_INCREMENT untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

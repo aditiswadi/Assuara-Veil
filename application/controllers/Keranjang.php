@@ -6,7 +6,7 @@ class Keranjang extends CI_Controller {
 		$products = $this->Products_model->find($id);
 
 		$data = array(
-			'id' => $products->id,
+			'id' => $products->id_produk,
 			'qty' => 1,
 			'price' => $products->harga,
 			'name' => $products->nama
@@ -34,16 +34,16 @@ class Keranjang extends CI_Controller {
 	}
 
 	public function prosesPesanan() {
+
 		$is_processed = $this->model_invoice->index();
-		if ($is_processed) 
-		{
+
+		if ($is_processed) {
 			$this->cart->destroy();
-		$this->load->view('ecommerce/templates/header');
-		$this->load->view('ecommerce/prosesPesanan');
-		$this->load->view('ecommerce/templates/footer');
-		} else 
-		{
-			echo "Maaf, Pesanan Anda gagal diproses!"
+			$this->load->view('ecommerce/templates/header');
+			$this->load->view('ecommerce/prosesPesanan');
+			$this->load->view('ecommerce/templates/footer');
+		} else {
+			echo "Maaf, Pesanan Anda gagal diproses!";
 		}
 		
 	}

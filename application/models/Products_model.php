@@ -7,7 +7,7 @@ class Products_model extends CI_Model {
     }
 
     public function getProductByID($id) {
-        return $this->db->get_where('products', ['id' => $id])->row_array();
+        return $this->db->get_where('products', ['id_produk' => $id])->row_array();
     }
 
     public function tambahProduk($data, $table) {
@@ -38,12 +38,12 @@ class Products_model extends CI_Model {
     
 
     public function hapusDataProduk($id) {
-        $this->db->where('id', $id);
+        $this->db->where('id_produk', $id);
         $this->db->delete('products');
     }
 
     public function find($id) {
-        $result = $this->db->where('id', $id)
+        $result = $this->db->where('id_produk', $id)
                        ->limit(1)
                        ->get('products');
         if ($result->num_rows() > 0) {

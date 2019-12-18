@@ -20,16 +20,16 @@
 						<div class="cf-title">Informasi Alamat</div>
 						<div class="row address-inputs">
 							<div class="col-md-12">
-								<input type="text" placeholder="Nama Lengkap" class="form-control">
-								<input type="text" placeholder="Kecamatan" class="form-control">
-								<input type="text" placeholder="Kabupaten/Kota" class="form-control">
-								<input type="text" placeholder="Alamat Lengkap" class="form-control">
+								<input type="text" placeholder="Nama Lengkap" name="nama" class="form-control">
+								<input type="text" placeholder="Alamat Lengkap" name="alamat" class="form-control">
+								<!-- <input type="text" placeholder="Kabupaten/Kota" class="form-control">
+								<input type="text" placeholder="Alamat Lengkap" class="form-control"> -->
 							</div>
 							<div class="col-md-6">
-								<input type="text" placeholder="Kode Pos" class="form-control">
+								<input type="text" placeholder="Kode Pos" name="kode_pos" class="form-control">
 							</div>
 							<div class="col-md-6">
-								<input type="text" placeholder="No. Telepon" class="form-control">
+								<input type="text" placeholder="No. Telepon" name="telepon" class="form-control">
 							</div>
 						</div>
 						<div class="cf-title">Informasi Pengiriman</div>

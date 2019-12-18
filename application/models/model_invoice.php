@@ -4,7 +4,7 @@ class Model_invoice extends CI_model
 {
     public function index()
     {
-        date_default_timezome_set('Asia/Jakarta');
+        // date_default_timezome_set('Asia/Jakarta');
         $nama =$this->input->post('nama');
         $alamat =$this->input->post('alamat');
 
@@ -21,17 +21,17 @@ class Model_invoice extends CI_model
             $this->db->insert('tb_invoice', $invoice);
             $id_invoice = $this->db->insert_id();
 
-            foreach ($this->cart->content() as $item)
+            foreach ($this->cart->contents() as $item)
             {
                 $data = array 
                 (
                     'id_invoice'    =>$id_invoice,
-                    'id_brg'        =>$item['id'],
-                    'nama_brg'      =>$item['name'],
+                    'id_produk'        =>$item['id'],
+                    'nama'      =>$item['name'],
                     'jumlah'        =>$item['qty'],
-                    'harga'         =>$item['price'],
+                    'harga'         =>$item['price']
                 );
-                $this->db->insert->('tb_pesanan',$data);
+                $this->db->insert('tb_pesanan', $data);
             
             }
 
