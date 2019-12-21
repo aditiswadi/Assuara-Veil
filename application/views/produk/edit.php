@@ -30,7 +30,7 @@
 			</div>
 
 			<button type="submit" class="btn btn-primary">
-				
+				Simpan
 			</button>
 		</form>
 	<?php endforeach; ?>

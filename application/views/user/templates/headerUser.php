@@ -66,6 +66,8 @@
                 <div class="shopping-card">
                   <a href="<?= base_url(); ?>/keranjang/detail"><i class="flaticon-bag"></i></a>
                 </div>
+
+                
                 <!-- coba -->
 
                 <!-- akhir coba -->
