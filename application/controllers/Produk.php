@@ -1,6 +1,12 @@
 <?php 
 
 class Produk extends CI_Controller {
+
+	public function __construct() {
+        parent::__construct();
+        $this->load->library('form_validation');
+    }
+
 	public function index() {
 		$data['products'] = $this->Products_model->getAllProducts();
 		$this->load->view('admin/templates/header');
@@ -11,8 +17,8 @@ class Produk extends CI_Controller {
 
 	public function tambah() {
 		$nama = $this->input->post('nama');
-		$deskripsi = $this->input->post('deskripsi');
 		$kategori = $this->input->post('kategori');
+		$deskripsi = $this->input->post('deskripsi');
 		$harga = $this->input->post('harga');
 		$stok = $this->input->post('stok');
 		
@@ -34,8 +40,8 @@ class Produk extends CI_Controller {
 
 		$data = array (
 			'nama' => $nama,
-			'deskripsi' => $deskripsi,
 			'kategori' => $kategori,
+			'deskripsi' => $deskripsi,
 			'harga' => $harga,
 			'stok' => $stok,
 			'gambar' => $gambar
@@ -45,44 +51,29 @@ class Produk extends CI_Controller {
 		redirect('produk/index');
 	}
 
-	public function edit($id) {
-		$where = array('id_produk' => $id);
-		$data['products'] = $this->Products_model->editProduk($where, 'products')->result();
-		$this->load->view('admin/templates/header');
-		$this->load->view('admin/templates/sidebar');
-		$this->load->view('produk/edit', $data);
-		$this->load->view('admin/templates/footer');
-	}
+	public function ubah($id) {
+        $data['products'] = $this->Products_model->getProductById($id);
 
-	public function update() {
-		$id = $this->input->post('id_produk');
-		$nama = $this->input->post('nama');
-		$deskripsi = $this->input->post('deskripsi');
-		$kategori = $this->input->post('kategori');
-		$harga = $this->input->post('harga');
-		$stok = $this->input->post('stok');
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('harga', 'Harga', 'required|numeric');
+        $this->form_validation->set_rules('stok', 'Stok', 'required|numeric');
 
-		$data = array(
-			'nama' => $nama,
-			'deskripsi' => $deskripsi,
-			'kategori' => $kategori,
-			'harga' => $harga,
-			'stok' => $stok
-		);
-
-		$where = array(
-			'id_produk' => $id
-		);
-
-		$this->Products_model->updateData($where, $data, 'products');
-		redirect('produk/index');
-
-	}
-
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/templates/header');
+			$this->load->view('admin/templates/sidebar');
+			$this->load->view('produk/edit', $data);
+			$this->load->view('admin/templates/footer');    
+        } else {
+            $this->Products_model->ubahDataProduk();
+            $this->session->set_flashdata('flash', 'Diubah');
+            redirect('produk/index');
+        }
+    }
 
 	public function hapus($id) {
         $this->Products_model->hapusDataProduk($id);
         $this->session->set_flashdata('flash', 'Dihapus');
         redirect('produk/index');
     }
+
 }

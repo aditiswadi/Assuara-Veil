@@ -33,20 +33,7 @@
 							</div>
 						</div>
 						<div class="cf-title">Informasi Pengiriman</div>
-						<!-- <div class="form-group">
-							<div class="col-6">
-								<h4>Pilih Jasa Pengiriman</h4>
-							</div>
-							<div class="col-6">
-								<select>
-									<option>JNE</option>
-									<option>JNT</option>
-									<option>TIKI</option>
-									<option>GRAB</option>
-									<option>GOJEK</option>
-								</select>
-							</div>
-						</div> -->
+						
 						<div class="row shipping-btns">
 							<div class="col-6">
 								<h4>Pilih Jasa Pengiriman</h4>
@@ -70,10 +57,7 @@
 							</div>
 						</div>
 						<div class="cf-title">Informasi Pembayaran</div>
-						<!-- ul class="payment-list">
-							<li>Paypal<a href="#"><img src="<?= base_url() ?>/assets/ecommerce/img/paypal.png" alt=""></a></li>
-							<li>Credit / Debit card<a href="#"><img src="<?= base_url() ?>/assets/ecommerce/img/mastercart.png" alt=""></a></li>
-						</ul> -->
+						
 						<div class="row shipping-btns">
 							<div class="col-6">
 								<h4>Pilih Bank</h4>
@@ -81,8 +65,8 @@
 							<div class="col-6">
 								<div class="cf-radio-btns">
 									<div class="cfr-item">
-										<input type="radio" name="payment-1" id="payment-1">
-										<label for="ship-1">BCA - XXXXXXXXX</label>
+										<input type="radio" name="payment" id="pay-1">
+										<label for="pay-1">BCA - XXXXXXXXX</label>
 									</div>
 								</div>
 							</div>
@@ -90,8 +74,8 @@
 							<div class="col-6">
 								<div class="cf-radio-btns">
 									<div class="cfr-item">
-										<input type="radio" name="payment-2" id="payment-2">
-										<label for="ship-2">MANDIRI - XXXXXXXXX</label>
+										<input type="radio" name="payment" id="pay-2">
+										<label for="pay-2">MANDIRI - XXXXXXXXX</label>
 									</div>
 								</div>
 							</div>

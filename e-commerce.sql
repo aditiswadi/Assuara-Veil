@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2019 at 03:36 PM
+-- Generation Time: Dec 22, 2019 at 02:11 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -25,14 +25,36 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kategori`
+--
+
+CREATE TABLE `kategori` (
+  `id_kategori` int(100) NOT NULL,
+  `nama_kategori` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kategori`
+--
+
+INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
+(1, 'Laptop'),
+(2, 'Smartphone'),
+(4, 'Sepatu'),
+(5, 'Komp'),
+(6, 'Sepatu');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
   `id_produk` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
+  `kategori` varchar(100) NOT NULL,
   `deskripsi` varchar(255) NOT NULL,
-  `kategori` varchar(50) NOT NULL,
   `harga` int(11) NOT NULL,
   `stok` int(10) NOT NULL,
   `gambar` text NOT NULL
@@ -42,9 +64,9 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id_produk`, `nama`, `deskripsi`, `kategori`, `harga`, `stok`, `gambar`) VALUES
-(4, 'Lenovo', 'lorem ipsum', 'laptop', 2000000, 3, 'asus2.jpg'),
-(8, 'ASUS ROG', 'lorem ipsum', 'laptop', 5000000, 3, 'asg1.jpg');
+INSERT INTO `products` (`id_produk`, `nama`, `kategori`, `deskripsi`, `harga`, `stok`, `gambar`) VALUES
+(8, 'Asus 2', 'Laptop', 'lorem ipsum', 5000000, 3, 'asg1.jpg'),
+(18, 'Lenovo', 'Komputer', 'lorem ipsum', 30000000, 5, 'asus4.jpg');
 
 -- --------------------------------------------------------
 
@@ -65,9 +87,7 @@ CREATE TABLE `tb_invoice` (
 --
 
 INSERT INTO `tb_invoice` (`id`, `nama`, `alamat`, `tgl_pesan`, `batas_bayar`) VALUES
-(1, 'asaasa', 'asa', '2019-12-18 06:29:02', '2019-12-19 06:29:02'),
-(2, 'asaasa', 'asa', '2019-12-18 06:31:24', '2019-12-19 06:31:24'),
-(3, '', '', '2019-12-18 15:58:41', '2019-12-19 15:58:41');
+(4, 'Reza', 'Bandung', '2019-12-21 19:48:03', '2019-12-22 19:48:03');
 
 -- --------------------------------------------------------
 
@@ -92,7 +112,8 @@ CREATE TABLE `tb_pesanan` (
 INSERT INTO `tb_pesanan` (`id`, `id_invoice`, `id_produk`, `nama`, `jumlah`, `harga`, `pilihan`) VALUES
 (1, 2, 8, 'ASUS ROG', 1, 5000000, ''),
 (2, 2, 6, 'Oppo', 1, 30000000, ''),
-(3, 3, 8, 'ASUS ROG', 1, 5000000, '');
+(3, 3, 8, 'ASUS ROG', 1, 5000000, ''),
+(4, 4, 8, 'ASUS ROG', 1, 5000000, '');
 
 -- --------------------------------------------------------
 
@@ -146,6 +167,12 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 --
 
 --
+-- Indexes for table `kategori`
+--
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`id_kategori`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -180,22 +207,28 @@ ALTER TABLE `user_role`
 --
 
 --
+-- AUTO_INCREMENT for table `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `id_kategori` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tb_invoice`
 --
 ALTER TABLE `tb_invoice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_pesanan`
 --
 ALTER TABLE `tb_pesanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`

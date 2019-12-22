@@ -29,7 +29,7 @@
 				<div class="col-lg-3 col-sm-6">
 					<div class="product-item">
 						<div class="pi-pic">
-							<img src="<?= base_url(); ?>/uploads/<?= $product['gambar'] ?>" alt="">
+							<a href="<?= base_url(); ?>ecommerce/detail/<?= $product['id_produk']; ?>"><img src="<?= base_url(); ?>/uploads/<?= $product['gambar'] ?>" alt=""></a>
 							<div class="pi-links">
 								<a href="<?= base_url(); ?>keranjang/tambah/<?= $product['id_produk']; ?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
@@ -37,7 +37,7 @@
 						</div>
 						<div class="pi-text">
 							<h6>Rp. <?= number_format($product['harga'], 0, ',', '.'); ?></h6>
-							<p><?= $product['nama'];  ?></p>
+							<a href="<?= base_url(); ?>ecommerce/detail/<?= $product['id_produk']; ?>"><p><?= $product['nama'];  ?></p></a>
 						</div>
 					</div>
 				</div>

@@ -81,7 +81,7 @@
           </li>
           <li class="nav-header">MANAJEMEN PRODUK</li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="<?= base_url() ?>kategori" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>KATEGORI</p>
             </a>
@@ -93,7 +93,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url('') ?>invoice" class="nav-link">
+            <a href="<?= base_url() ?>invoice" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>INVOICE</p>
             </a>

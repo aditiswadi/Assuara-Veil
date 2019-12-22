@@ -75,7 +75,7 @@
       <div class="container">
         <!-- menu -->
         <ul class="main-menu">
-          <li><a href="#">Home</a></li>
+          <li><a href="<?= base_url() ?>ecommerce">Home</a></li>
           <li><a href="#">Pages</a>
             <ul class="sub-menu">
               <li><a href="./product.html">Product Page</a></li>
