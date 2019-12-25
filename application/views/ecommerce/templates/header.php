@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-  <title>Divisima | eCommerce Template</title>
+  <title>Assuara</title>
   <meta charset="UTF-8">
   <meta name="description" content=" Divisima | eCommerce Template">
   <meta name="keywords" content="divisima, eCommerce, creative, html">
@@ -76,15 +76,6 @@
         <!-- menu -->
         <ul class="main-menu">
           <li><a href="<?= base_url() ?>ecommerce">Home</a></li>
-          <li><a href="#">Pages</a>
-            <ul class="sub-menu">
-              <li><a href="./product.html">Product Page</a></li>
-              <li><a href="./category.html">Category Page</a></li>
-              <li><a href="./cart.html">Cart Page</a></li>
-              <li><a href="./checkout.html">Checkout Page</a></li>
-              <li><a href="./contact.html">Contact Page</a></li>
-            </ul>
-          </li>
         </ul>
       </div>
     </nav>

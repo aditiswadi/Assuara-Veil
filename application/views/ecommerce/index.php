@@ -5,11 +5,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-6 col-lg-7 text-white">
-							<span>New Arrivals</span>
-							<h2>denim jackets</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-							<a href="#" class="site-btn sb-line">DISCOVER</a>
-							<a href="#" class="site-btn sb-white">ADD TO CART</a>
+							<span></span>
+							<h2>Assuara</h2>
+							<p>Solution of Technology</p>
 						</div>
 					</div>
 				</div>
@@ -22,7 +20,7 @@
 	<section class="product-filter-section">
 		<div class="container">
 			<div class="section-title mt-5">
-				<h2>BROWSE TOP SELLING PRODUCTS</h2>
+				<h2>TOP SELLING PRODUCTS</h2>
 			</div>
 			<div class="row">
 				<?php foreach($products as $product) : ?>
@@ -42,9 +40,6 @@
 					</div>
 				</div>
 				<?php endforeach; ?>
-			</div>
-			<div class="text-center pt-5">
-				<button class="site-btn sb-line sb-dark">LOAD MORE</button>
 			</div>
 		</div>
 	</section>
