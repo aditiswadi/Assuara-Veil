@@ -13,7 +13,7 @@ class Keranjang extends CI_Controller {
 		);
 
 		$this->cart->insert($data);
-		redirect('ecommerce');
+		redirect('user');
 	}
 
 	public function detail() {

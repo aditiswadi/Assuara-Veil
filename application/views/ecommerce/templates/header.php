@@ -58,7 +58,7 @@
             <div class="user-panel">
               <div class="up-item">
                 <i class="flaticon-profile"></i>
-                <a href="<?= base_url('auth/index'); ?>">Sign In </a> or <i class="fas fa-user-plus"></i> <a href="<?= base_url('auth/registration'); ?>">Create Account</a>
+                <a href="<?= base_url('auth/index'); ?>">Sign In </a> or <i class="glyphicon glyphicon-plus-sign"></i> <a href="<?= base_url('auth/registration'); ?>">Create Account</a>
               </div>
               <div class="up-item">
                 <div class="shopping-card">
