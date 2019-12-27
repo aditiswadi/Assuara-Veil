@@ -22,6 +22,11 @@
 			<div class="section-title mt-5">
 				<h2>TOP SELLING PRODUCTS</h2>
 			</div>
+			<?php if(empty($products)) : ?>
+				<div class="alert alert-danger" role="alert">
+					Data tidak ditemukan.
+				</div>
+			<?php endif; ?>
 			<div class="row">
 				<?php foreach($products as $product) : ?>
 				<div class="col-lg-3 col-sm-6">

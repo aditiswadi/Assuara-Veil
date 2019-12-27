@@ -49,8 +49,8 @@
             </a>
           </div>
           <div class="col-xl-6 col-lg-5">
-            <form class="header-search-form">
-              <input type="text" placeholder="Search on divisima ....">
+            <form class="header-search-form" method="post">
+              <input type="text" placeholder="Cari produk ...." name="keyword">
               <button><i class="flaticon-search"></i></button>
             </form>
           </div>

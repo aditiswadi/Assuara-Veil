@@ -54,4 +54,13 @@ class Products_model extends CI_Model {
             return false;
         }
     }
+
+     public function cariDataProduk() {
+        $keyword = $this->input->post('keyword', true);
+        $this->db->like('nama', $keyword);
+        $this->db->or_like('deskripsi', $keyword);
+        $this->db->or_like('kategori', $keyword);
+        $this->db->or_like('harga', $keyword);
+        return $this->db->get('products')->result_array();
+    }
 }
