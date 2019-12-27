@@ -1,7 +1,7 @@
 <!-- Footer section -->
   <section class="footer-section">
       <div>
-          <p class="text-white text-center mb-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+          <p class="text-white text-center mb-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://assuara.com" target="_blank">Assuara</a></p>
         </div>
     </div>
   </section>

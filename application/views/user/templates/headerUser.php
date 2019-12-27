@@ -83,15 +83,7 @@
         <!-- menu -->
         <ul class="main-menu">
           <li><a href="#">Home</a></li>
-          <li><a href="#">Pages</a>
-            <ul class="sub-menu">
-              <li><a href="./product.html">Product Page</a></li>
-              <li><a href="./category.html">Category Page</a></li>
-              <li><a href="./cart.html">Cart Page</a></li>
-              <li><a href="./checkout.html">Checkout Page</a></li>
-              <li><a href="./contact.html">Contact Page</a></li>
-            </ul>
-          </li>
+          
         </ul>
       </div>
     </nav>
